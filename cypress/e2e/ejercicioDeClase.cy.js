@@ -44,7 +44,7 @@ describe("Calculadora de cadena ", () => {
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '18');
     });
-    it("cuando el usuario ingrese la cadena con un delimitador de más de un carácter debe retornar la suma de la cadena", () => {
+    it("cuando el usuario ingrese la cadena con un delimitador de mas de un carácter debe retornar la suma de la cadena", () => {
         cy.visit("/");
         cy.get("#cadena-sumador").type("//[***]4***4***4");
         cy.get("#sumar-button").click();
