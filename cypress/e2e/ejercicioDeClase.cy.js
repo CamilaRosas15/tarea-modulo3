@@ -25,4 +25,10 @@ describe("Calculadora de cadena ", () => {
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '1');
     });
+    it("cuando el usuario ingrese la operacion separado por ; entonces deberia sumar", () => {
+        cy.visit("/");
+        cy.get("#cadena-sumador").type("1,3");
+        cy.get("#sumar-button").click();
+        cy.get("#resultado-div").should('contain', '4');
+    });
 });
