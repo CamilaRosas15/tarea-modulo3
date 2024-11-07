@@ -7,7 +7,7 @@
 //CRITERIOS DE CONFIRMACION 
 //Cuando el usuario ingrese una cadena que sea separada
 /*
--Cuando la calculadora recibe una cadena de números separadas por coma o - debe retornar la suma de los mismos. 
+- Cuando la calculadora recibe una cadena de números separadas por coma o - debe retornar la suma de los mismos. 
 - El usuario puede especificar el delimitador de cualuier longitud. Por ejemplo el delimitador ‘;’ se especifica así:  “//[;] 6;7;4” 
 - Si los números son mayores a 1000 deberían ser ignorados.
 - Se puede especificar múltiples delimitadores usando el formato “//[delim1][delim2]”. Por ejemplo: “//[*][%] 1*2%3,7-9” que debería retornar 22 */
@@ -36,5 +36,11 @@ describe("Calculadora de cadena ", () => {
         cy.get("#cadena-sumador").type("1,3-5");
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '9');
+    });
+    it("cuando el usuario ingrese la operacion separado por , o - entonces deberia sumar", () => {
+        cy.visit("/");
+        cy.get("#cadena-sumador").type("//[;]6;7;5");
+        cy.get("#sumar-button").click();
+        cy.get("#resultado-div").should('contain', '18');
     });
 });

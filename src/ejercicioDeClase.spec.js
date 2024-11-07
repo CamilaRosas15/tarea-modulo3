@@ -17,4 +17,8 @@ describe("CALCULAR OPERACION", () => {
         let operacion = '1,4-3';
         expect(calcularOperacion(operacion)).toEqual(8);
     });
+    it("Si el usuario ingresa la cadena con delimitador personalizado debe retornar la suma de la cadena", () => {
+        let operacion = '//[;]6;7;4';
+        expect(calcularOperacion(operacion)).toEqual(17);
+    });
 });
