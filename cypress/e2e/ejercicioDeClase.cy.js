@@ -19,4 +19,10 @@ describe("Calculadora de cadena ", () => {
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '0');
     });
+    it("cuando el usuario ingrese una cadena debe mostrar la cadena" , () => {
+        cy.visit("/");
+        cy.get("#cadena-sumador").type("1");
+        cy.get("#sumar-button").click();
+        cy.get("#resultado-div").should('contain', '1');
+    });
 });
