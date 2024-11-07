@@ -21,4 +21,8 @@ describe("CALCULAR OPERACION", () => {
         let operacion = '//[;]6;7;4';
         expect(calcularOperacion(operacion)).toEqual(17);
     });
+    it("Si el usuario ingresa la cadena con un numero mayor a 1000 se ignora y debe retornar la suma de la cadena sin ese valor", () => {
+        let operacion = '2,1001';
+        expect(calcularOperacion(operacion)).toEqual(2);
+    });
 });

@@ -8,10 +8,11 @@ function calcularOperacion(operacion){
     }
 
     let array = operacion.split(delimitador);
-    //let array = operacion.split(/[,-]+/)
     if(operacion != ''){
         for(let i = 0 ; i< array.length ; i++){
-            respuesta += Number(array[i]);
+            if (Number(array[i]) <= 1000) { // Solo suma si el número es <= 1000
+                respuesta += Number(array[i]);    
+            }
         }
     }
     return respuesta;

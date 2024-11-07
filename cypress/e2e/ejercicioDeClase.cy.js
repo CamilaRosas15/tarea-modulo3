@@ -37,10 +37,16 @@ describe("Calculadora de cadena ", () => {
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '9');
     });
-    it("cuando el usuario ingrese la operacion separado por , o - entonces deberia sumar", () => {
+    it("cuando el usuario ingrese la cadena con delimitador personalizado entonces deberia sumar", () => {
         cy.visit("/");
         cy.get("#cadena-sumador").type("//[;]6;7;5");
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '18');
+    });
+    it("cuando el usuario ingrese la cadena con un numero mayor a 1000 se ignora y debe retornar la suma de la cadena sin ese valor", () => {
+        cy.visit("/");
+        cy.get("#cadena-sumador").type("300,2-3");
+        cy.get("#sumar-button").click();
+        cy.get("#resultado-div").should('contain', '305');
     });
 });
