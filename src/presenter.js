@@ -1,15 +1,14 @@
-import sumar from "./sumador";
+//import sumar from "./sumador";
+import calcularOperacion from "./ejercicioDeClase";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
+const cadena = document.querySelector("#cadena-sumador");
 const form = document.querySelector("#sumar-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  
+  const cadenaValue = cadena.value;
+  
+  div.innerHTML = "<p>" + calcularOperacion(cadenaValue) +"</p>";
 });
