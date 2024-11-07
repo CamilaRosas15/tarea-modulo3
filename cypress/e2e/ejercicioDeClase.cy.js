@@ -10,7 +10,8 @@
 - Cuando la calculadora recibe una cadena de números separadas por coma o - debe retornar la suma de los mismos. 
 - El usuario puede especificar el delimitador de cualuier longitud. Por ejemplo el delimitador ‘;’ se especifica así:  “//[;] 6;7;4” 
 - Si los números son mayores a 1000 deberían ser ignorados.
-- Se puede especificar múltiples delimitadores usando el formato “//[delim1][delim2]”. Por ejemplo: “//[*][%] 1*2%3,7-9” que debería retornar 22 */
+- Se puede especificar también delimitadores de cualquier longitud (de más de un carácter), usando el formato: “//[delimitador]”.
+- Se puede especificar múltiples delimitadores usando el formato “//[delim1][delim2]”. Por ejemplo: “//[*][%] 1*2%3,7-9” que debería retornar 22 @*/
 
 describe("Calculadora de cadena ", () => {
     it("cuando el usuario ingrese una cadena vacia debe mostrar 0" , () => {
@@ -43,10 +44,10 @@ describe("Calculadora de cadena ", () => {
         cy.get("#sumar-button").click();
         cy.get("#resultado-div").should('contain', '18');
     });
-    it("cuando el usuario ingrese la cadena con un numero mayor a 1000 se ignora y debe retornar la suma de la cadena sin ese valor", () => {
+    it("cuando el usuario ingrese la cadena con un delimitador de más de un carácter debe retornar la suma de la cadena", () => {
         cy.visit("/");
-        cy.get("#cadena-sumador").type("300,2-3");
+        cy.get("#cadena-sumador").type("//[***]4***4***4");
         cy.get("#sumar-button").click();
-        cy.get("#resultado-div").should('contain', '305');
+        cy.get("#resultado-div").should('contain', '12');
     });
 });

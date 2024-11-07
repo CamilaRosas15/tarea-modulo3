@@ -25,4 +25,13 @@ describe("CALCULAR OPERACION", () => {
         let operacion = '2,1001';
         expect(calcularOperacion(operacion)).toEqual(2);
     });
+    it("Si el usuario especifica un delimitador de más de un carácter debe retornar la suma de la cadena", () => {
+        let operacion = '//[***]1***2***3';
+        expect(calcularOperacion(operacion)).toEqual(6); // 1 + 2 + 3 = 6
+    });
+    /*
+    it("Si el usuario ingresa la cadena con delimitador personalizado debe retornar la suma de la cadena", () => {
+        let operacion = '//[$]6$7,1';
+        expect(calcularOperacion(operacion)).toEqual(14);
+    });*/
 });
