@@ -1,11 +1,10 @@
 function calcularOperacion(operacion){
     let respuesta = 0;
     let delimitador = /[,-]+/;
-    
+
     const delimitadorPersonal = operacion.match(/^\/\/\[(.+?)\]\s*/);
     if (delimitadorPersonal) {
-        const escapedDelimiter = delimitadorPersonal[1].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-        delimitador = new RegExp(`[,-]+|(${escapedDelimiter})+`); 
+        delimitador = crearExpresionRegularDelimitador(delimitadorPersonal[1]);
         operacion = operacion.slice(delimitadorPersonal[0].length); 
     }
 
@@ -20,6 +19,9 @@ function calcularOperacion(operacion){
     return respuesta;
 }
 
+function crearExpresionRegularDelimitador(delimitador) {
+    const delimitadorEscapado = delimitador.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    return new RegExp(`[,-]+|(${delimitadorEscapado})+`);
+}
+
 export default calcularOperacion;
-
-
