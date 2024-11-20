@@ -5,7 +5,6 @@
 //PARA: Poner ejercicios y verificar si la suma de esa cadena es correcta
 //------------------------------------------------------------------------
 //CRITERIOS DE CONFIRMACION 
-//Cuando el usuario ingrese una cadena que sea separada
 /*
 - Cuando la calculadora recibe una cadena de números separadas por coma o - debe retornar la suma de los mismos. 
 - El usuario puede especificar el delimitador de cualuier longitud. Por ejemplo el delimitador ‘;’ se especifica así:  “//[;] 6;7;4” 
