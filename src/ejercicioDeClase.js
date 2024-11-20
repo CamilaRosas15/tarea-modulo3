@@ -1,15 +1,15 @@
-function sumarNumerosEnCadena(operacion){
+function sumarNumerosEnCadena(cadena){
     let resultadoSuma = 0;
     let delimitador = /[,-]+/;
 
-    const delimitadorPersonal = operacion.match(/^\/\/\[(.+?)\]\s*/);
+    const delimitadorPersonal = cadena.match(/^\/\/\[(.+?)\]\s*/);
     if (delimitadorPersonal) {
         delimitador = crearExpresionRegularDelimitador(delimitadorPersonal[1]);
-        operacion = operacion.slice(delimitadorPersonal[0].length); 
+        cadena = cadena.slice(delimitadorPersonal[0].length); 
     }
 
-    let array = operacion.split(delimitador);
-    if(operacion != ''){
+    let array = cadena.split(delimitador);
+    if(cadena != ''){
         for(let i = 0 ; i< array.length ; i++){
             if (Number(array[i]) <= 1000) { 
                 resultadoSuma += Number(array[i]);    
