@@ -1,5 +1,5 @@
 function sumarNumerosEnCadena(operacion){
-    let respuesta = 0;
+    let resultadoSuma = 0;
     let delimitador = /[,-]+/;
 
     const delimitadorPersonal = operacion.match(/^\/\/\[(.+?)\]\s*/);
@@ -12,11 +12,11 @@ function sumarNumerosEnCadena(operacion){
     if(operacion != ''){
         for(let i = 0 ; i< array.length ; i++){
             if (Number(array[i]) <= 1000) { 
-                respuesta += Number(array[i]);    
+                resultadoSuma += Number(array[i]);    
             }
         }
     }
-    return respuesta;
+    return resultadoSuma;
 }
 
 function crearExpresionRegularDelimitador(delimitador) {
