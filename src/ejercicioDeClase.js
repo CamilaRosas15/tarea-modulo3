@@ -1,4 +1,4 @@
-function calcularOperacion(operacion){
+function sumarNumerosEnCadena(operacion){
     let respuesta = 0;
     let delimitador = /[,-]+/;
 
@@ -24,4 +24,4 @@ function crearExpresionRegularDelimitador(delimitador) {
     return new RegExp(`[,-]+|(${delimitadorEscapado})+`);
 }
 
-export default calcularOperacion;
+export default sumarNumerosEnCadena;
